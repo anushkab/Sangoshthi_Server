@@ -6,10 +6,6 @@ import controller as ctrl
 import s_a as server_to_asha
 import s_b as server_to_broadcaster
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("[b_s]")
-
 BROADCASTER_TO_SERVER = "broadcaster_to_server"
 
 # rabbitmq declarations

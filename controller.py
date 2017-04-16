@@ -2,10 +2,6 @@ import mongo_file as mongo
 import esl_controller as esl
 import os
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("[controller]")
-
 def create_show(data):
     if mongo.insert_show_stats(data):
         return True

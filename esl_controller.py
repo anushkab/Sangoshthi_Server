@@ -19,7 +19,6 @@ except:
 con = ESL.ESLconnection(fs_config.server, fs_config.port, fs_config.password)
 gateway = fs_config.gateway
 
-
 if not con.connected:
         print('Not Connected')
         sys.exit(2)
