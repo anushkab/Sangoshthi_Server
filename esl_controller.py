@@ -138,6 +138,6 @@ def check_conf_alive(conference_name):
 def get_member_id_by_phone_number(members_list, phone_number):
     for member in members_list:
         if member['phone_number'] == phone_number:
-            return dicts['member_id']
+            return member['member_id']
     return None
 
