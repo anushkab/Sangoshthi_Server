@@ -24,7 +24,7 @@ def callback_a_s(ch, method, properties, body):
     print("msg received from asha")
     print(incoming_json)
 
-    if(data['objective'] == "query"):
+    if(incoming_json['objective'] == "query"):
         if ctrl.query(incoming_json):
             msg = 'OK'
         else:
@@ -32,7 +32,7 @@ def callback_a_s(ch, method, properties, body):
        
         server_to_broadcaster.send(body)
         
-    elif(data['objective'] == "like"):
+    elif(incoming_json['objective'] == "like"):
         if ctrl.like(incoming_json):
             msg = 'OK'
         else:
