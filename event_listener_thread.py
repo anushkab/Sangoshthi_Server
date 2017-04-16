@@ -56,6 +56,10 @@ class EventListenerThread(Thread):
                     self.counter = self.counter - 1
                     print('--- Member Delete ---')
                     print('Counter is ' , self.counter)
+                    print('header is ' , action)
+                    phone_number = conference_event.getHeader("Caller-Caller-ID-Number", -1);
+                    uuid = conference_event.getHeader("Unique-ID", -1);
+                    member_id = conference_event.getHeader("Member-ID", -1);
                                         
         
         if event_name == "CHANNEL_ANSWER":
