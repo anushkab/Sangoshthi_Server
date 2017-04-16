@@ -135,7 +135,7 @@ def callback_b_s(ch, method, properties, body):
 
         participants = ctrl.get_active_participants(incoming_json)
         if participants:
-            msg = data
+            msg = participants
         else:
             msg = 'FAIL'
 
