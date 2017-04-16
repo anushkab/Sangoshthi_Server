@@ -20,8 +20,8 @@ con = ESL.ESLconnection(fs_config.server, fs_config.port, fs_config.password)
 gateway = fs_config.gateway
 
 if not con.connected:
-        print('Not Connected')
-        sys.exit(2)
+    print('Not Connected')
+    sys.exit(2)
   
 def add_broadcaster_to_conference(phone_number, conference_name, flags, case):
    
@@ -40,7 +40,7 @@ def add_broadcaster_to_conference(phone_number, conference_name, flags, case):
 
     print("Body of calling function: " + value)
     
-    uuid = result[4:len(value)-1]    
+    uuid = value[4:len(value)-1]    
     print('uuid ' , uuid)
 
     #print("calling redial thread")
@@ -64,7 +64,7 @@ def add_listener_to_conference(phone_number, conference_name, flags, case):
 
     print("Body of calling function: " + value)
     
-    uuid = result[4:len(value)-1]    
+    uuid = value[4:len(value)-1]    
     print('uuid ' , uuid)
        
     #print("calling redial thread")
