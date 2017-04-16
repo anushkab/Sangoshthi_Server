@@ -3,6 +3,7 @@ import pika
 import json
 import yaml
 import controller as ctrl
+import event_listener_thread
 import s_a as server_to_asha
 import s_b as server_to_broadcaster
 
