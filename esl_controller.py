@@ -103,6 +103,7 @@ def get_conference_participants(conference_name):
 
 def set_mode(conference_name, member, mode):
 
+    print('mode' , conference_name, member, mode)
     if mode == "mute":
         command = "conference " + conference_name + " mute " + member
     elif mode == "unmute":
@@ -136,8 +137,11 @@ def check_conf_alive(conference_name):
         return False
 
 def get_member_id_by_phone_number(members_list, phone_number):
+
+    print('ff' , members_list , phone_number)
     for member in members_list:
         if member['phone_number'] == phone_number:
+            print('aaa' , member['member_id'])
             return member['member_id']
     return None
 
