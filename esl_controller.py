@@ -129,7 +129,6 @@ def check_conf_alive(conference_name):
     command = "conference list"
     result = con.api(command)
     value = str(result.getBody())
-    print("Body of check conference alive function: " + value)
     
     if conference_name in value:
         return True
