@@ -27,6 +27,8 @@ def callback_b_s(ch, method, properties, body):
     print(incoming_json)
 
     # NETWORK COMMANDS
+
+    msg = 'EMPTY'
     
     # create a new show
     if incoming_json['objective'] == 'create_show':
