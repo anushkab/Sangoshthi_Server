@@ -1,5 +1,6 @@
 import traceback, sys
-
+import s_b as server_to_broadcaster
+    
 try:
     import ESL
     import fs_config as configuration
@@ -60,10 +61,14 @@ class EventListenerThread(Thread):
                     print('header is ' , conference_event)
                 
                     phone_number = conference_event.getHeader("Caller-Caller-ID-Number", -1);
-                    uuid = conference_event.getHeader("Unique-ID", -1);
-                    member_id = conference_event.getHeader("Member-ID", -1);
 
                     print(phone_number , uuid , member_id)
+
+                    # send data to broadcaster to deactivate asha
+                    data = {"objective" : "deactivate_asha", "phone_no" : phone_number}
+                    json_data = json.dumps(data)
+                    print(json_data)
+                    server_to_broadcaster.send(json_data)
                                         
         
         if event_name == "CHANNEL_ANSWER":

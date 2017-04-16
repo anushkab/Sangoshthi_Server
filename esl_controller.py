@@ -8,7 +8,6 @@ import thread
 import time
 import traceback
 from time import gmtime, strftime
-import s_b as server_to_broadcaster
 
 try:
     import ESL
@@ -116,13 +115,7 @@ def get_conference_participants_phone(conference_name):
                 try:
                     if len(results_list_parsed) > 4:
                         phone_number = results_list_parsed[4]
-                        members.append(phone_number)
-
-                        # send data to broadcaster to deactivate asha
-                        data = {"objective" : "deactivate_asha", "phone_no" : phone_number}
-                        json_data = json.dumps(data)
-                        print(json_data)
-                        server_to_broadcaster.send(json_data)
+                        members.append(phone_number)                        
     
                 except IndexError:
                     print("Range Error")
