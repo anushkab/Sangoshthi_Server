@@ -53,7 +53,7 @@ def add_listener_to_conference(phone_number, conference_name, flags, case):
     recording_location = ''
     conference_dial_string = str("originate " +recording_location+
                                  gateway + 
-                                 locale + phone_number + 
+                                 phone_number + 
                                  " &conference(" + conference_name + 
                                  "+flags{" + flags + "})")
     
