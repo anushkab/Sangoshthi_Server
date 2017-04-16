@@ -2,10 +2,6 @@ from flask import Flask
 from flask_pymongo import PyMongo
 import json
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("[mongo_file]")
-
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'SangoshthiDb'
@@ -21,7 +17,7 @@ def insert_show_stats(data):
     with app.app_context():
         entries = mongo.db.show_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
 
 # play/pause commands
@@ -30,7 +26,7 @@ def insert_play_pause_stats(data):
      with app.app_context():
         entries = mongo.db.play_pause_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
 
 # flush query
@@ -39,7 +35,7 @@ def insert_flush_query_stats(data):
      with app.app_context():
         entries = mongo.db.flush_query_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
     
 # asha has raised a query
@@ -48,7 +44,7 @@ def insert_asha_query_stats(data):
     with app.app_context():
         entries = mongo.db.asha_query_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
         
 # asha liked the video
@@ -57,7 +53,7 @@ def insert_asha_like_stats(data):
     with app.app_context():
         entries = mongo.db.asha_like_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
 
 # get show status if finished or not, if finished then return 0 else 1
@@ -80,7 +76,7 @@ def insert_spread_word_stats(data):
     with app.app_context():
         entries = mongo.db.spread_word_stats
         entries.insert(data)
-        logger.info(data)
+        print(data)
 
 # add delete listener stats
 def insert_del_listener_stats(data):
@@ -88,7 +84,7 @@ def insert_del_listener_stats(data):
     with app.app_context():
         entries = mongo.db.del_listener_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
         
 # delete listener from show_stats table
@@ -139,7 +135,7 @@ def insert_call_broadcaster_stats(incoming_json):
     with app.app_context():
         entries = mongo.db.call_broadcaster_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
     
 # get broadcaster for a specific show
@@ -159,7 +155,7 @@ def insert_call_listener_stats(incoming_json):
     with app.app_context():
         entries = mongo.db.call_listener_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
     
 # get ashas for a specific show
@@ -180,7 +176,7 @@ def insert_mute_unmute_stats(data):
     with app.app_context():
         entries = mongo.db.mute_unmute_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
 
 # update show stats flag when show ends

@@ -6,10 +6,6 @@ import controller as ctrl
 import s_a as server_to_asha
 import s_b as server_to_broadcaster
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("[b_s]")
-
 BROADCASTER_TO_SERVER = "broadcaster_to_server"
 
 # rabbitmq declarations
@@ -26,8 +22,8 @@ def callback_b_s(ch, method, properties, body):
     
     incoming_json = yaml.safe_load(body)
     
-    logger.info("msg received from broadcaster")    
-    logger.info(incoming_json)
+    print("msg received from broadcaster")    
+    print(incoming_json)
 
     # NETWORK COMMANDS
     
@@ -154,11 +150,11 @@ def callback_b_s(ch, method, properties, body):
 
     data = {"objective" : "ack", "info" : msg}
     json_data = json.dumps(data)
-    logger.debug(json_data)
+    print(json_data)
     server_to_broadcaster.send(json_data)
     
 channel_b_s.basic_consume(callback_b_s, queue=BROADCASTER_TO_SERVER, no_ack=True)
 
-logger.info('Waiting for Messages...')
+print('Waiting for Messages...')
 
 channel_b_s.start_consuming()

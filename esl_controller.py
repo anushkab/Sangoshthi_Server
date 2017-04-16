@@ -9,23 +9,19 @@ import time
 import traceback
 from time import gmtime, strftime
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("[esl_controller]")
-
 try:
     import ESL
     import fs_config
 except:
-    logger.error("Error Importing Custom Modules")
-    logger.error(traceback.print_exc())
+    print("Error Importing Custom Modules")
+    print(traceback.print_exc())
 
 con = ESL.ESLconnection(fs_config.server, fs_config.port, fs_config.password)
 gateway = fs_config.gateway
 
 
 if not con.connected:
-        logger.error('Not Connected')
+        print('Not Connected')
         sys.exit(2)
   
 def add_broadcaster_to_conference(phone_number, conference_name, flags, case):
@@ -38,15 +34,15 @@ def add_broadcaster_to_conference(phone_number, conference_name, flags, case):
                                  " &conference(" + conference_name + 
                                  "+flags{" + flags + "})")
     
-    logger.debug("Executing dial_string: " + conference_dial_string)
+    print("Executing dial_string: " + conference_dial_string)
     
     result = con.api(conference_dial_string)
     value = str(result.getBody())
 
-    logger.debug("Body of calling function: " + value)
+    print("Body of calling function: " + value)
     
     uuid = result[4:len(value)-1]    
-    logger.debug('uuid ' , uuid)
+    print('uuid ' , uuid)
 
     #print("calling redial thread")
     #thread = redial_thread.Redial(conference_name,phone_number,conference_dial_string,case)
@@ -62,15 +58,15 @@ def add_listener_to_conference(phone_number, conference_name, flags, case):
                                  " &conference(" + conference_name + 
                                  "+flags{" + flags + "})")
     
-    logger.debug("Executing dial_string: " + conference_dial_string)
+    print("Executing dial_string: " + conference_dial_string)
     
     result = con.api(conference_dial_string)
     value = str(result.getBody())
 
-    logger.debug("Body of calling function: " + value)
+    print("Body of calling function: " + value)
     
     uuid = result[4:len(value)-1]    
-    logger.debug('uuid ' , uuid)
+    print('uuid ' , uuid)
        
     #print("calling redial thread")
     #thread = redial_thread.Redial(conference_name,phone_number,conference_dial_string,case)
@@ -82,7 +78,7 @@ def get_conference_participants(conference_name):
 
     if e:
         result_body = e.getBody()
-        logger.debug("Body of get participants function: " + str(result_body))
+        print("Body of get participants function: " + str(result_body))
         
         if result_body is not None:
             results_list = result_body.splitlines()
@@ -98,7 +94,7 @@ def get_conference_participants(conference_name):
                         flags = results_list_parsed[5]
                         participant = {'member_id': member_id, 'uuid': uuid, 'phone_number': phone_number, 'flags': flags}
                         members.append(phone_number)
-                        logger.debug("Member ID: " + member_id + "\t Caller Number: " + phone_number + "\t UUID: " + uuid + "\tFlags: " + flags)
+                        print("Member ID: " + member_id + "\t Caller Number: " + phone_number + "\t UUID: " + uuid + "\tFlags: " + flags)
                 except IndexError:
                     logger.error("Range Error")
             return members
@@ -115,7 +111,7 @@ def set_mode(conference_name, member, mode):
         
     result = con.api(str(command))
     value = str(result.getBody())
-    logger.debug("Body of muting function: " + value)
+    print("Body of muting function: " + value)
     return True
 
 def end_conf(conference_name):
@@ -123,7 +119,7 @@ def end_conf(conference_name):
     command = "conference " + conference_name + " kick all"
     result = con.api(str(command))
     value = str(result.getBody())
-    logger.debug("Body of end conference function: " + value)
+    print("Body of end conference function: " + value)
     
     if "OK" in value:
         return True
@@ -134,7 +130,7 @@ def check_conf_alive(conference_name):
     command = "conference list"
     result = con.api(command)
     value = str(result.getBody())
-    logger.debug("Body of check conference alive function: " + value)
+    print("Body of check conference alive function: " + value)
     
     if conference_name in value:
         return True

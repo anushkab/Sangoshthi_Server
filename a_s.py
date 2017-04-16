@@ -5,10 +5,6 @@ import yaml
 import controller as ctrl
 import s_b as server_to_broadcaster
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("[a_s]")
-
 ASHA_TO_SERVER = "asha_to_server"
 
 # rabbitmq declarations
@@ -25,8 +21,8 @@ def callback_a_s(ch, method, properties, body):
 
     incoming_json = yaml.safe_load(body)
 
-    logger.info("msg received from asha")
-    logger.info(incoming_json)
+    print("msg received from asha")
+    print(incoming_json)
 
     if(data['objective'] == "query"):
         if ctrl.query(incoming_json):

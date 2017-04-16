@@ -1,9 +1,5 @@
 import traceback, sys
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("[event_listener_thread]")
-
 try:
     import ESL
     import fs_config as configuration
@@ -14,13 +10,13 @@ try:
     from datetime import datetime
     
 except:
-    logger.error("Error importing custom modules")
-    logger.error(traceback.print_exc())
+    print("Error importing custom modules")
+    print(traceback.print_exc())
 
 def create_freeswitch_connection():
     freeswitch_connection = ESL.ESLconnection(configuration.server, configuration.port, configuration.password)
     if not freeswitch_connection.connected():
-        logger.error('Not Connected')
+        print('Not Connected')
         sys.exit(2)
     freeswitch_connection.events('plain', 'all')
     return freeswitch_connection
@@ -50,26 +46,26 @@ class EventListenerThread(Thread):
                 conf_action = conference_event.getHeader('Action')
                 
                 if conf_action == 'conference-destroy':
-                    logger.info('--- Conference Destroy ---')
+                    print('--- Conference Destroy ---')
                     self.stop()
                     
                 elif (conf_action == 'unmute-member') or (conf_action == 'mute-member'):
-                    logger.info('--- Member Mute/Unmute ---')
+                    print('--- Member Mute/Unmute ---')
                     
                 elif (conf_action == 'del-member'):
                     self.counter = self.counter - 1
-                    logger.info('Counter is ' , self.counter)
-                    logger.info('--- Member Delete ---')
+                    print('Counter is ' , self.counter)
+                    print('--- Member Delete ---')
                     
         
         if event_name == "CHANNEL_ANSWER":
             self.counter = self.counter + 1
-            logger.info('Counter is ' , self.counter)
-            logger.info('--- Channel Answer ---')
+            print('Counter is ' , self.counter)
+            print('--- Channel Answer ---')
 			
 			
     def run(self):
-        logger.info('--- Event Thread Started ---')
+        print('--- Event Thread Started ---')
         freeswitch_connection = create_freeswitch_connection()
         
         while self._is_running:
@@ -80,4 +76,4 @@ class EventListenerThread(Thread):
                 self.handle(e)
             else:
                 self.stop()
-        logger.info('--- Event Thread Closed ---')
+        print('--- Event Thread Closed ---')

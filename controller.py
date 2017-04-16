@@ -2,10 +2,6 @@ import mongo_file as mongo
 import esl_controller as esl
 import os
 
-import logging
-logging.basicConfig(level=logging.DEBUG)
-logger = logging.getLogger("[controller]")
-
 def create_show(data):
     if mongo.insert_show_stats(data):
         return True
@@ -53,7 +49,7 @@ def spread_word(incoming_json):
     listener_list = mongo.get_ashas_from_db(show_name)
 
     for listener in listener_list:
-        logger.debug(listener)
+        print(listener)
     
     #receives data in format: dd/mm/yyyy the default format of the android
 	
@@ -63,7 +59,7 @@ def spread_word(incoming_json):
     time_details = time.split(":")
     new_time_str = time_details[0]+":"+time_details[1]+":00"
 
-    logger.debug(new_date_str , new_time_str)
+    print(new_date_str , new_time_str)
     
 ##  for listener in listener_list: 
 ##        if esl.schedule_trailer(new_date_str,new_time_str,listener[0],show_name):
@@ -192,8 +188,8 @@ def end_show(incoming_json):
     mongo.update_show_stats(show_name)
     
     if esl.end_conf(show_name):
-        logger.info('success ending')
+        print('success ending')
         return True
     else:
-        logger.info('error ending')
+        print('error ending')
         return False
