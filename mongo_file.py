@@ -134,7 +134,7 @@ def insert_delete_trailer_stats(data):
 def insert_call_broadcaster_stats(data):
     with app.app_context():
         entries = mongo.db.call_broadcaster_stats
-		print('hii' , data)
+	print('hii' , data)
         status = entries.insert(data)
         print(data)
         return status
