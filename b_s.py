@@ -6,6 +6,10 @@ import controller as ctrl
 import s_a as server_to_asha
 import s_b as server_to_broadcaster
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger("[b_s]")
+
 BROADCASTER_TO_SERVER = "broadcaster_to_server"
 
 # rabbitmq declarations
@@ -22,8 +26,8 @@ def callback_b_s(ch, method, properties, body):
     
     incoming_json = yaml.safe_load(body)
     
-    print("msg received from broadcaster")    
-    print(incoming_json)
+    logger.info("msg received from broadcaster")    
+    logger.info(incoming_json)
 
     # NETWORK COMMANDS
     
@@ -54,11 +58,8 @@ def callback_b_s(ch, method, properties, body):
 
     # get show status if finished or not
     elif incoming_json['objective'] == 'get_show_status':        
-        if ctrl.get_show_status(incoming_json['show_name']):
-            msg = "OK"
-        else :
-            msg = "FAIL" 	
-
+        msg = ctrl.get_show_status(incoming_json['show_name']):
+            
     # FREESWITCH COMMANDS
 
     # schedule the broadcast of the trailer and also add its entry in a new table for logging purpose
@@ -150,11 +151,11 @@ def callback_b_s(ch, method, properties, body):
 
     data = {"objective" : "ack", "info" : msg}
     json_data = json.dumps(data)
-    print(json_data)
+    logger.debug(json_data)
     server_to_broadcaster.send(json_data)
     
 channel_b_s.basic_consume(callback_b_s, queue=BROADCASTER_TO_SERVER, no_ack=True)
 
-print('Waiting for Messages...')
+logger.info('Waiting for Messages...')
 
 channel_b_s.start_consuming()
