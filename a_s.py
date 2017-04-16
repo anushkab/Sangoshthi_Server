@@ -43,6 +43,6 @@ def callback_a_s(ch, method, properties, body):
 	
 channel_a_s.basic_consume(callback_a_s, queue=ASHA_TO_SERVER, no_ack=True)
 
-logger.info('Waiting for messages...')
+print('Waiting for messages...')
 
 channel_a_s.start_consuming()
