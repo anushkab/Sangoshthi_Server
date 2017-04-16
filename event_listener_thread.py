@@ -7,7 +7,7 @@ logger = logging.getLogger("[event_listener_thread]")
 try:
     import ESL
     import fs_config as configuration
-    import eslcontroller as esl
+    import esl_controller as esl
     import threading
     import json
     from threading import Thread
