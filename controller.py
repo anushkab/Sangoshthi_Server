@@ -156,7 +156,7 @@ def call_listener(incoming_json):
 
 def get_active_participants(incoming_json):
     show_name = incoming_json['show_name']
-    return esl.get_conference_participants(show_name)
+    return esl.get_conference_participants_phone(show_name)
 
 def mute_unmute(incoming_json):
 

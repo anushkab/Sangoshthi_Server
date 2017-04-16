@@ -8,6 +8,7 @@ import thread
 import time
 import traceback
 from time import gmtime, strftime
+import s_b as server_to_broadcaster
 
 try:
     import ESL
@@ -92,6 +93,37 @@ def get_conference_participants(conference_name):
                         participant = {'member_id': member_id, 'uuid': uuid, 'phone_number': phone_number, 'flags': flags}
                         members.append(participant)
                         print("Member ID: " + member_id + "\t Caller Number: " + phone_number + "\t UUID: " + uuid + "\tFlags: " + flags)
+                except IndexError:
+                    print("Range Error")
+            return members
+        
+    print("No members found")
+    return None
+
+def get_conference_participants_phone(conference_name):
+    members = []
+    e = con.api(str("conference " + conference_name + " list"))
+
+    if e:
+        result_body = e.getBody()
+        
+        if result_body is not None:
+            results_list = result_body.splitlines()
+            
+            for line in results_list:
+                results_list_parsed = line.split(';')
+
+                try:
+                    if len(results_list_parsed) > 4:
+                        phone_number = results_list_parsed[4]
+                        members.append(phone_number)
+
+                        # send data to broadcaster to deactivate asha
+                        data = {"objective" : "deactivate_asha", "phone_no" : phone_number}
+                        json_data = json.dumps(data)
+                        print(json_data)
+                        server_to_broadcaster.send(json_data)
+    
                 except IndexError:
                     print("Range Error")
             return members
