@@ -54,14 +54,14 @@ class EventListenerThread(Thread):
                     
                 elif (conf_action == 'del-member'):
                     self.counter = self.counter - 1
-                    print('Counter is ' , self.counter)
                     print('--- Member Delete ---')
-                    
+                    print('Counter is ' , self.counter)
+                                        
         
         if event_name == "CHANNEL_ANSWER":
             self.counter = self.counter + 1
+            print('--- Channel Answer ---')            
             print('Counter is ' , self.counter)
-            print('--- Channel Answer ---')
 			
 			
     def run(self):

@@ -40,8 +40,7 @@ def add_broadcaster_to_conference(phone_number, conference_name, flags, case):
 
     print("Body of calling function: " + value)
     
-    uuid = value[4:len(value)-1]    
-    print('uuid ' , uuid)
+    uuid = value[4:len(value)-1]   
 
     #print("calling redial thread")
     #thread = redial_thread.Redial(conference_name,phone_number,conference_dial_string,case)
@@ -64,8 +63,7 @@ def add_listener_to_conference(phone_number, conference_name, flags, case):
 
     print("Body of calling function: " + value)
     
-    uuid = value[4:len(value)-1]    
-    print('uuid ' , uuid)
+    uuid = value[4:len(value)-1] 
        
     #print("calling redial thread")
     #thread = redial_thread.Redial(conference_name,phone_number,conference_dial_string,case)
@@ -77,7 +75,7 @@ def get_conference_participants(conference_name):
 
     if e:
         result_body = e.getBody()
-        print("Body of get participants function: " + str(result_body))
+        #print("Body of get participants function: " + str(result_body))
         
         if result_body is not None:
             results_list = result_body.splitlines()
