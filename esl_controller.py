@@ -92,13 +92,13 @@ def get_conference_participants(conference_name):
                         phone_number = results_list_parsed[4]
                         flags = results_list_parsed[5]
                         participant = {'member_id': member_id, 'uuid': uuid, 'phone_number': phone_number, 'flags': flags}
-                        members.append(phone_number)
+                        members.append(participant)
                         print("Member ID: " + member_id + "\t Caller Number: " + phone_number + "\t UUID: " + uuid + "\tFlags: " + flags)
                 except IndexError:
-                    logger.error("Range Error")
+                    print("Range Error")
             return members
         
-    logger.warn("No members found")
+    print("No members found")
     return None
 
 def set_mode(conference_name, member, mode):
