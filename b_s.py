@@ -58,7 +58,7 @@ def callback_b_s(ch, method, properties, body):
 
     # get show status if finished or not
     elif incoming_json['objective'] == 'get_show_status':        
-        msg = ctrl.get_show_status(incoming_json['show_name']):
+        msg = ctrl.get_show_status(incoming_json['show_name'])
             
     # FREESWITCH COMMANDS
 
