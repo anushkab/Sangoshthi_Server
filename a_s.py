@@ -3,7 +3,6 @@ import pika
 import json
 import yaml
 import controller as ctrl
-import MongoFile as mongo
 import s_b as server_to_broadcaster
 
 import logging

@@ -8,7 +8,6 @@ import thread
 import time
 import traceback
 from time import gmtime, strftime
-import MongoFile as mongo
 
 import logging
 logging.basicConfig(level=logging.DEBUG)
