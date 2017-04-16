@@ -101,7 +101,7 @@ def insert_del_all_listener_stats(data):
     with app.app_context():
         entries = mongo.db.del_all_listener_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
 
 # delete all listeners from show_stats table     
@@ -118,7 +118,7 @@ def insert_play_trailer_stats(data):
      with app.app_context():
         entries = mongo.db.play_trailer_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
 
 # add delete trailer stats
@@ -127,11 +127,11 @@ def insert_delete_trailer_stats(data):
     with app.app_context():
         entries = mongo.db.delete_trailer_stats
         status = entries.insert(data)
-        logger.info(data)
+        print(data)
         return status
 
 # add call broadcaster stats
-def insert_call_broadcaster_stats(incoming_json):
+def insert_call_broadcaster_stats(data):
     with app.app_context():
         entries = mongo.db.call_broadcaster_stats
         status = entries.insert(data)
@@ -151,7 +151,7 @@ def get_broadcaster_from_db(show_name):
         return 0
 
 # add call listener stats
-def insert_call_listener_stats(incoming_json):
+def insert_call_listener_stats(data):
     with app.app_context():
         entries = mongo.db.call_listener_stats
         status = entries.insert(data)
