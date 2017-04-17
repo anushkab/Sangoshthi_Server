@@ -186,3 +186,15 @@ def update_show_stats(show_name):
         entries = mongo.db.show_stats        
         status = entries.update({"show_name":show_name},{"$set" : {"show_status" : '0'}})
         return status
+
+# get show status
+def get_show_status(show_name)
+
+    with app.app_context():
+        entries = mongo.db.show_stats        
+
+        for q in entries.find():
+            if(q['show_name'] == show_name):
+                return q['show_status']
+            
+        return 0
