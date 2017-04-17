@@ -58,11 +58,7 @@ class EventListenerThread(Thread):
                     print('--- Member Delete ---')
                     print('Counter is ' , self.counter)
 
-                    print('header is ' , conference_event)
-                
                     phone_number = conference_event.getHeader("Caller-Caller-ID-Number", -1);
-
-                    print(phone_number , uuid , member_id)
 
                     # send data to broadcaster to deactivate asha
                     data = {"objective" : "deactivate_asha", "phone_no" : phone_number}
