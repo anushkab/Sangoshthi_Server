@@ -1,0 +1,22 @@
+import datetime
+import mongo_file as mongo
+
+def portal_show_creation(content_ID, broadcaster, time_of_airing):
+    now = datetime.datetime.now()
+    now = now.strftime("%Y_%m_%d_%H_%M_%S")
+
+
+    show_id = str(content_ID)+"_"+ str(broadcaster)+"_" + now
+
+    new_data = { 'show_id' : show_id,
+                 'broadcaster' : broadcaster,
+                 'content_ID' : content_ID,
+                 'time_of_airing' : time_of_airing,
+                 'status':'0' }
+
+    status = mongo.insert_portal_created_show_data(newdata)
+
+    return status
+
+
+def portal_cohort_creation()

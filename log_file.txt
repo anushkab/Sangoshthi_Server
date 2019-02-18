@@ -1,0 +1,182 @@
+question start timestamp is 
+2018-05-24 14:38:29
+question timestamp array is
+[u'14:38:29', u'14:38:34']
+question start timestamp is 
+2018-05-24 14:38:50
+question timestamp array is
+[u'14:38:50', u'14:38:54']
+q1 is none
+Waiting for Messages from the broadcaster...
+msg received from broadcaster
+{u'objective': u'get_upcoming_show', u'cohort_id': u'12', u'broadcaster': u'7011030818', u'timestamp': u'2018-05-25 12:25:13'}
+('time string received', '2018-05-11 09:55:53')
+2018-05-11 09:55:53
+('the local time is', '2018-05-11 15:25:53+05:30')
+2018-05-11 15:25:53
+select localized from WebPortal_show INNER JOIN WebPortal_content ON WebPortal_show.content_id = WebPortal_content.id where WebPortal_show.cohort_id = '12' and WebPortal_show.status = '0'
+local name is सैंपल शो
+showid is show_22time 2018-05-11 15:25:53 topic sample showlocal name isसैंपल शो
+('data to be published non priority', '{"objective": "upcoming_show_data", "topic": "sample show", "show_id": "show_22", "time_of_airing": "2018-05-11 15:25:53", "local_name": "\\u0938\\u0948\\u0902\\u092a\\u0932 \\u0936\\u094b"}')
+msg received from broadcaster
+{u'objective': u'start_show', u'cohort_id': u'12', u'show_id': u'show_22', u'broadcaster': u'7011030818', u'timestamp': u'2018-05-25 12:25:20'}
+start show request
+Executing dial_string: originate {recordings_dir=/home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/show_22}sofia/external/7011030818@192.168.2.69 &conference(show_22_2018_05_25_12_25_15+flags{unmute})
+Body of calling function: +OK 9437e184-5fe8-11e8-afb2-c38d083de5fe
+
+CONF NAMEEEE is show_22_2018_05_25_12_25_15
+recording file path  is /home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/show_22
+CONF NAMEEEE is show_22_2018_05_25_12_25_15
+[event listener cohort - 12]--- Event Thread Started ---
+('data to be published', '{"objective": "start_show_response", "info": "show_22_2018_05_25_12_25_15"}')
+[event listener cohort - 12]--- Channel Answer ---
+{'phone_number': '7011030818', 'show_id': u'show_22', 'cohort_id': u'12', 'timestamp': '2018-05-25 12:25:22', 'call_attempt': 'none', 'conference_name': u'show_22_2018_05_25_12_25_15', 'objective': 'conference_host_call_answer', '_id': ObjectId('5b07b35a1d41c8a1b1976c5e')}
+msg received from broadcaster
+{u'show_id': u'show_22', u'cohort_id': u'12', u'timestamp': u'2018-05-25 12:25:29', u'broadcaster': u'7011030818', u'conference_name': u'show_22_2018_05_25_12_25_15', u'objective': u'dial_listeners'}
+('broadcaster no is ', u'7011030818')
+('calling listener with phone number', '8377846695')
+Executing dial_string: originate {recordings_dir=/home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/show_22}sofia/external/8377846695@192.168.2.69 &conference(show_22_2018_05_25_12_25_15+flags{mute})
+Body of calling function: +OK 99191916-5fe8-11e8-afb7-c38d083de5fe
+
+('calling listener with phone number', '9643066633')
+Executing dial_string: originate {recordings_dir=/home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/show_22}sofia/external/9643066633@192.168.2.69 &conference(show_22_2018_05_25_12_25_15+flags{mute})
+--- Redial Thread Started ---
+Body of calling function: +OK 992ee002-5fe8-11e8-afbb-c38d083de5fe
+
+('calling listener with phone number', '7291048199')
+Executing dial_string: originate {recordings_dir=/home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/show_22}sofia/external/7291048199@192.168.2.69 &conference(show_22_2018_05_25_12_25_15+flags{mute})
+--- Redial Thread Started ---
+Body of calling function: +OK 9947b6e0-5fe8-11e8-afbf-c38d083de5fe
+
+--- Redial Thread Started ---
+('data to be published', '{"objective": "dial_listeners_response", "cohort_members_phone_name_mapping": {"9643066633": "port 3 SIM", "7291048199": "port 7 sim", "8377846695": "port 8 SIM"}}')
+msg received from broadcaster
+{u'show_id': u'show_22', u'cohort_id': u'12', u'timestamp': u'2018-05-25 12:25:29', u'broadcaster': u'7011030818', u'conference_name': u'show_22_2018_05_25_12_25_15', u'objective': u'show_playback_metadata'}
+('content_id fetched is', '19')
+('file received is ', 'uploads/audio_files/content/sample_content.wav')
+('absolute path is ', '/home/sangoshthi/tushar/Django/Sangoshti/uploads/audio_files/content/sample_content.wav')
+retrieved show details are sample_question1 - uploads/audio_files/Q&A/sample_question1.wav
+retrieved show details are sample_answer1 - uploads/audio_files/Q&A/sample_answer1.wav
+retrieved show details are sample_question2 - uploads/audio_files/Q&A/sample_question2.wav
+retrieved show details are sample_answer2 - uploads/audio_files/Q&A/sample_answer2.wav
+('data to be published', '{"objective": "show_playback_metadata_response", "media": [{"duration": 7338, "type": "content", "order": "1", "name": "sample_content"}, {"duration": 4899, "type": "question", "order": "2", "name": "sample_question1"}, {"duration": 4899, "type": "answer", "order": "3", "name": "sample_answer1"}, {"duration": 3669, "type": "question", "order": "4", "name": "sample_question2"}, {"duration": 4899, "type": "answer", "order": "5", "name": "sample_answer2"}]}')
+[event listener cohort - 12]--- Member Delete  Case---
+[event listener cohort - 12]--- Member Delete  Case---
+Redial Conference Hangup
+Redial Conference Hangup
+Redial Conference Hangup
+5b07b3621d41c8a1b1976c61
+calling 7291048199 again
+redial thread, command in hangup case originate {recordings_dir=/home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/show_22}sofia/external/7291048199@192.168.2.69 &conference(show_22_2018_05_25_12_25_15+flags{mute})
+Redial Conference Hangup
+Redial Conference Hangup
+[redial thread] channel ANSWER
+('channel is answered by %s stopping redial thread', '8377846695')
+5b07b3631d41c8a1b1976c62
+[Redial Thread], conference_start_answer
+exiting
+[Redial Thread] Stopped
+[event listener cohort - 12]--- Channel Answer ---
+('data to be published non priority', '{"objective": "conf_member_status", "show_id": "show_22", "task": "online", "phoneno": "8377846695", "conference_name": "show_22_2018_05_25_12_25_15"}')
+5b07b3631d41c8a1b1976c63
+5b07b3641d41c8a1b1976c64
+calling 9643066633 again
+redial thread, command in hangup case originate {recordings_dir=/home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/show_22}sofia/external/9643066633@192.168.2.69 &conference(show_22_2018_05_25_12_25_15+flags{mute})
+[redial thread] channel ANSWER
+Redial Conference Hangup
+[redial thread] channel ANSWER
+[event listener cohort - 12]--- Member Delete  Case---
+msg received from broadcaster
+{u'show_id': u'show_22', u'cohort_id': u'12', u'timestamp': u'2018-05-25 12:25:38', u'listener_phoneno': u'8377846695', u'turn': 0, u'broadcaster': u'7011030818', u'conference_name': u'show_22_2018_05_25_12_25_15', u'objective': u'unmute'}
+('turn is', '0')
+('recording command', 'conference show_22_2018_05_25_12_25_15 recording start /home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/1/8377846695_0.wav')
+Body of end conference function: Record file /home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/1/8377846695_0.wav
+
+{u'show_id': u'show_22', u'cohort_id': u'12', u'timestamp': u'2018-05-25 12:25:38', u'listener_phoneno': u'8377846695', u'turn': 0, u'broadcaster': u'7011030818', u'conference_name': u'show_22_2018_05_25_12_25_15', u'objective': u'unmute', '_id': ObjectId('5b07b3651d41c8a1b1976c65')}
+Member ID: 760	 Caller Number: 9643066633	 UUID: 9ddb270a-5fe8-11e8-afc7-c38d083de5fe	Flags: hear
+Member ID: 756	 Caller Number: 8377846695	 UUID: 99191916-5fe8-11e8-afb7-c38d083de5fe	Flags: hear
+Member ID: 754	 Caller Number: 7011030818	 UUID: 9437e184-5fe8-11e8-afb2-c38d083de5fe	Flags: hear|speak|floor|vid-floor
+member id  of phone 8377846695 is 756
+[esl_controller]	details are: unmute 756 show_22_2018_05_25_12_25_15
+[esl_controller]	Body of Muting Function: OK unmute 756
+
+('data to be published', '{"objective": "mute_unmute_ack", "info": "OK", "listener_phoneno": "8377846695"}')
+('data to be published', '{"objective": "mute_unmute_response", "info": "OK", "listener_phoneno": "8377846695"}')
+msg received from broadcaster
+{u'show_id': u'show_22', u'cohort_id': u'12', u'timestamp': u'2018-05-25 12:25:39', u'listener_phoneno': u'8377846695', u'turn': 1, u'broadcaster': u'7011030818', u'conference_name': u'show_22_2018_05_25_12_25_15', u'objective': u'mute'}
+('recording command', 'conference show_22_2018_05_25_12_25_15 recording stop /home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/1/8377846695_1.wav')
+Body of end conference function: non-existant recording '/home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/1/8377846695_1.wav'
+Stopped recording 0 files
+
+{u'show_id': u'show_22', u'cohort_id': u'12', u'timestamp': u'2018-05-25 12:25:39', u'listener_phoneno': u'8377846695', u'turn': 1, u'broadcaster': u'7011030818', u'conference_name': u'show_22_2018_05_25_12_25_15', u'objective': u'mute', '_id': ObjectId('5b07b3661d41c8a1b1976c67')}
+Member ID: 760	 Caller Number: 9643066633	 UUID: 9ddb270a-5fe8-11e8-afc7-c38d083de5fe	Flags: hear
+Member ID: 756	 Caller Number: 8377846695	 UUID: 99191916-5fe8-11e8-afb7-c38d083de5fe	Flags: hear|speak
+Member ID: 754	 Caller Number: 7011030818	 UUID: 9437e184-5fe8-11e8-afb2-c38d083de5fe	Flags: hear|speak|floor|vid-floor
+member id  of phone 8377846695 is 756
+[esl_controller]	details are: mute 756 show_22_2018_05_25_12_25_15
+[esl_controller]	Body of Muting Function: OK mute 756
+
+('data to be published', '{"objective": "mute_unmute_ack", "info": "OK", "listener_phoneno": "8377846695"}')
+('data to be published', '{"objective": "mute_unmute_response", "info": "OK", "listener_phoneno": "8377846695"}')
+Redial Conference Hangup
+Redial Conference Hangup
+msg received from broadcaster
+{u'show_id': u'show_22', u'cohort_id': u'12', u'timestamp': u'2018-05-25 12:25:40', u'media_order': u'1', u'broadcaster': u'7011030818', u'conference_name': u'show_22_2018_05_25_12_25_15', u'objective': u'play_show_media', u'type': u'content'}
+('content_id fetched is', '19')
+('file received is ', 'uploads/audio_files/content/sample_content.wav')
+('absolute path is ', '/home/sangoshthi/tushar/Django/Sangoshti/uploads/audio_files/content/sample_content.wav')
+{'cohort_id': u'12', 'show_id': u'show_22', 'timestamp': '2018-05-25 12:25:35', 'conference_name': u'show_22_2018_05_25_12_25_15', 'objective': 'start_play_show_media', 'media_type': u'content', 'media_order': u'1', '_id': ObjectId('5b07b3671d41c8a1b1976c69'), 'file_path': '/home/sangoshthi/tushar/Django/Sangoshti/uploads/audio_files/content/sample_content.wav'}
+going to play requested audio..
+[eslcontroller]	 playing audio...(play) Playing file /home/sangoshthi/tushar/Django/Sangoshti/uploads/audio_files/content/sample_content.wav
+
+('data to be published', '{"objective": "play_show_media_ack", "info": "OK"}')
+5b07b3671d41c8a1b1976c6a
+calling 7291048199 again
+redial thread, command in hangup case originate {recordings_dir=/home/sangoshthi/sangoshthi_new/recordings/show_22/show_22_2018_05_25_12_25_15/show_22}sofia/external/7291048199@192.168.2.69 &conference(show_22_2018_05_25_12_25_15+flags{mute})
+redial count timeout, stopping redial thread
+[Redial Thread] Stopped
+[event listener cohort - 12]--- Member Delete  Case---
+Redial Conference Hangup
+[event listener cohort - 12]COntent STOPPED..
+[event listener cohort - 12]COntent STOPPED..
+the media of my conference has stopped
+[event listener cohort - 12]current audio of my conference thread has stopped
+('data to be published', '{"case": "content", "show_id": "show_22", "timestamp": "2018-05-25 12:25:42", "media_order": "1", "conference_name": "show_22_2018_05_25_12_25_15", "objective": "media_stopped"}')
+{'case': u'content', 'show_id': u'show_22', 'timestamp': '2018-05-25 12:25:42', 'media_order': u'1', 'conference_name': u'show_22_2018_05_25_12_25_15', 'objective': 'media_stopped', '_id': ObjectId('5b07b36e1d41c8a1b1976c6b')}
+msg received from broadcaster
+{u'show_id': u'show_22', u'cohort_id': u'12', u'timestamp': u'2018-05-25 12:25:51', u'broadcaster': u'7011030818', u'conference_name': u'show_22_2018_05_25_12_25_15', u'objective': u'end_show_call'}
+Body of end conference function: OK kicked 760
+OK kicked 756
+OK kicked 754
+
+success ending
+[event listener cohort - 12] removing my thread object from the dictionary
+('data to be published', '{"objective": "end_show_call_ack", "info": "OK"}')
+[event listener cohort - 12]--- Member Delete  Case---
+[event listener cohort - 12]Conference Member of my cohort dropped
+('data to be published', '{"objective": "end_show_call_ack", "info": "OK"}')
+('data to be published non priority', '{"objective": "conf_member_status", "show_id": "show_22", "task": "offline", "phoneno": "8377846695", "conference_name": "show_22_2018_05_25_12_25_15"}')
+[event listener cohort - 12]Redialling
+[event listener cohort - 12]on checking again the conference status, found destroyed , so not redialling
+[event listener cohort - 12]--- Event Thread Closed ---
+question start timestamp is 
+-1
+question start timestamp is 
+-1
+12:25:22
+12:25:45
+For listener 8377846695: 
+('unmute instance ', u'12:25:33')
+complete stats list is {'total_speak_duration_seconds_conference': 0.0, 'speak_count_conference': 0, 'listener_significant_unmute_count': 0, 'unmute_count_on_without_press1_event': 1, 'max_speak_duration_seconds_conference': -1, 'nospeak_on_significant_unmute_count': 0, 'avg_speak_duration_seconds_conference': -1, 'unmute_count_on_press1_event': 0, 'listener_non_significant_unmute_count': 1}
+complete stats list is {'valid_press1_event_count': 0, 'invalid_attempt_count_press1_event': 0, 'invalid_key_event': 0}
+call drop count is 0
+For listener 9643066633: 
+complete stats list is {'total_speak_duration_seconds_conference': 0.0, 'speak_count_conference': 0, 'listener_significant_unmute_count': 0, 'unmute_count_on_without_press1_event': 0, 'max_speak_duration_seconds_conference': -1, 'nospeak_on_significant_unmute_count': 0, 'avg_speak_duration_seconds_conference': -1, 'unmute_count_on_press1_event': 0, 'listener_non_significant_unmute_count': 0}
+complete stats list is {'valid_press1_event_count': 0, 'invalid_attempt_count_press1_event': 0, 'invalid_key_event': 0}
+call drop count is 0
+For listener 7291048199: 
+complete stats list is {'total_speak_duration_seconds_conference': 0.0, 'speak_count_conference': 0, 'listener_significant_unmute_count': 0, 'unmute_count_on_without_press1_event': 0, 'max_speak_duration_seconds_conference': -1, 'nospeak_on_significant_unmute_count': 0, 'avg_speak_duration_seconds_conference': -1, 'unmute_count_on_press1_event': 0, 'listener_non_significant_unmute_count': 0}
+complete stats list is {'valid_press1_event_count': 0, 'invalid_attempt_count_press1_event': 0, 'invalid_key_event': 0}
+call drop count is 0
+[redial] conference is destroyed, so closing the thread
+[Redial Thread] Stopped

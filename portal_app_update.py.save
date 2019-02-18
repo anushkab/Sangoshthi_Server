@@ -1,0 +1,10 @@
+import os
+import django
+import sys
+sys.path.append('/home/sangoshthi/tushar/Django/Sangoshti')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Sangoshti.settings')
+django.setup()
+   
+from  WebPortal.models import Show
+Show.objects.filter(showID='show_1').update(recording='/home/sangoshthi/sangoshthi_new/recordings/show_1/show_1_combined_recording.wav')
+

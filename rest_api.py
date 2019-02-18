@@ -7,7 +7,7 @@ import json
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'SangoshthiDb'
-app.config['MONGO_URI'] = 'mongodb://192.168.2.71:27017/SangoshthiDb'
+app.config['MONGO_URI'] = 'mongodb://127.0.0.1:27017/SangoshthiDb'
 
 mongo = PyMongo(app)
 

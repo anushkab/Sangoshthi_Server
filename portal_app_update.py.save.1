@@ -1,0 +1,17 @@
+import os
+import django
+import sys
+sys.path.append('/home/sangoshthi/tushar/Django/Sangoshti')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Sangoshti.settings')
+django.setup()
+
+from  WebPortal.models import Show
+#Show.objects.filter(showID='show_2').update(recording='/home/sangoshthi/sangoshthi_new/recordings/show_1/show_1_combined_recording.wav')
+
+
+#show = get_show() // assuming you have retrieved a show
+
+
+with open('../recordings/show_1/show_1_combined_recording.wav', 'rb') as recording:
+   Show.recording.save('show_1_combined_recording.wav', File(recording), save=True)
+Show.save()
